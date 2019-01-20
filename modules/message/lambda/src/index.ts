@@ -101,7 +101,7 @@ export function handler(event: SNSEvent): Promise<void> {
 
       /* Send message if it's not a test message */
       if (email && !email.match(/@example\.com$/))
-        await new SES({ apiVersion: "2010-12-01" })
+        await new SES({ apiVersion: "2010-12-01", region: "us-east-1" })
           .sendRawEmail({
             Source: process.env.SES_SENDER_ADDRESS!,
             Destinations: [email],
